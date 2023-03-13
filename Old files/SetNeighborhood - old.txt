@@ -1,0 +1,54 @@
+// Função que referencia os vizinhos do bloco que está no Grid na posição passada por parâmetro
+    public void SetNeighborhood(int x, int y)
+    { // Considerando se existe ligaçao entre os vizinhos ou nao
+        if (blockGrid[x, y] == null) { Debug.Log("ERRO : Nao existe bloco na posicao."); }
+		else
+        {
+            Block top = null, bot = null, left = null, right = null;
+
+            if (x <= 0) left = null; // Armazenando o bloco da esquerda, se existir
+            else
+            {
+                if (blockGrid[x - 1, y] != null)
+                {
+                    if (blockGrid[x, y].portDivision.ToString().Contains("LEFT") && blockGrid[x - 1, y].portDivision.ToString().Contains("RIGHT")) // Se existir ligaçao de portas entre os dois
+                        left = blockGrid[x - 1, y];
+                    else left = null;
+                }
+            }
+
+            if (x >= gridSize - 1) right = null; // Armazenando o bloco da direita, se existir
+            else
+            {
+                if (blockGrid[x + 1, y] != null)
+                {
+                    if (blockGrid[x, y].portDivision.ToString().Contains("RIGHT") && blockGrid[x + 1, y].portDivision.ToString().Contains("LEFT"))
+                        right = blockGrid[x + 1, y];
+                    else right = null;
+                }
+            }
+
+            if (y <= 0) top = null; // Armazenando o bloco do topo, se existir
+            else
+            {
+                if (blockGrid[x, y - 1] != null)
+                {
+                    if (blockGrid[x, y].portDivision.ToString().Contains("TOP") && blockGrid[x, y - 1].portDivision.ToString().Contains("BOT"))
+                        top = blockGrid[x, y - 1];
+                    else top = null;
+                }
+            }
+
+            if (y >= gridSize - 1) bot = null; // Armazenando o bloco de baixo, se existir
+            else
+            {
+                if (blockGrid[x, y + 1] != null)
+                {
+                    if (blockGrid[x, y].portDivision.ToString().Contains("BOT") && blockGrid[x, y + 1].portDivision.ToString().Contains("TOP"))
+                        bot = blockGrid[x, y + 1];
+                    else bot = null;
+                }
+            }
+
+            blockGrid[x, y].SetNeighborhood(top, bot, left, right);
+        }
