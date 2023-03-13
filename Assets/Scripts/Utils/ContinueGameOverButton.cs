@@ -33,7 +33,7 @@ public class ContinueGameOverButton : MonoBehaviour
 
     void Update()
     {
-        GetComponent<TextMesh>().renderer.material.color = Color.Lerp(GetComponent<TextMesh>().renderer.material.color, targetColor, Time.deltaTime * 5f);
+        GetComponent<TextMesh>().GetComponent<Renderer>().material.color = Color.Lerp(GetComponent<TextMesh>().GetComponent<Renderer>().material.color, targetColor, Time.deltaTime * 5f);
     }
 
     public void WakeUp()
@@ -63,7 +63,7 @@ public class ContinueGameOverButton : MonoBehaviour
             GetComponent<TextMesh>().text = new string(text);
             yield return new WaitForSeconds(Time.deltaTime * speed);
         }
-        collider.enabled = true;
+        GetComponent<Collider>().enabled = true;
     }
 
     void OnMouseEnter()

@@ -18,7 +18,7 @@ public class LevelSelectButton : MonoBehaviour {
 		else
 			Debug.LogWarning("Null Sound: menuButton");
 
-        collider.collider.enabled = true;
+        collider.GetComponent<Collider>().enabled = true;
 
         iTween.ScaleTo(mesh, iTween.Hash("scale", Vector3.zero,
                                          "time", 1));

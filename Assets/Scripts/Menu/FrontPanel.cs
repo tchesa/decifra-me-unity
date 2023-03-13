@@ -27,7 +27,7 @@ public class FrontPanel : MonoBehaviour {
 	IEnumerator IShow()
 	{
 		yield return new WaitForSeconds(0);
-		collider.collider.enabled = true;
+		collider.GetComponent<Collider>().enabled = true;
 		iTween.ScaleTo(plane, iTween.Hash("z", 0.5389027f
 										  ));
 	}
@@ -35,7 +35,7 @@ public class FrontPanel : MonoBehaviour {
 	IEnumerator IHide()
 	{
 		yield return new WaitForSeconds(0);
-		collider.collider.enabled = false;
+		collider.GetComponent<Collider>().enabled = false;
 		iTween.ScaleTo(plane, iTween.Hash("z", 0
 										  ));
 	}

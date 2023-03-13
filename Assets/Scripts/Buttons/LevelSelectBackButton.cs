@@ -26,7 +26,7 @@ public class LevelSelectBackButton : MonoBehaviour
             iTween.ScaleTo(mesh, iTween.Hash("scale", Vector3.one * 1.091071f,
                                          "time", 1));
 
-            collider.collider.enabled = false;
+            collider.GetComponent<Collider>().enabled = false;
 
             click = false;
 			

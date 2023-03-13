@@ -33,7 +33,7 @@ public class ContinueButton : MonoBehaviour
 	
 	void Update()
 	{
-		GetComponent<TextMesh>().renderer.material.color = Color.Lerp(GetComponent<TextMesh>().renderer.material.color, mainColor, Time.deltaTime * 5f);
+		GetComponent<TextMesh>().GetComponent<Renderer>().material.color = Color.Lerp(GetComponent<TextMesh>().GetComponent<Renderer>().material.color, mainColor, Time.deltaTime * 5f);
 	}
 
     public void WakeUp()
@@ -63,12 +63,12 @@ public class ContinueButton : MonoBehaviour
             GetComponent<TextMesh>().text = new string(text);
             yield return new WaitForSeconds(Time.deltaTime * speed);
         }
-		collider.enabled = true;
+		GetComponent<Collider>().enabled = true;
     }
 	
 	void OnMouseDown()
 	{
-		GetComponent<TextMesh>().renderer.material.color = Color.red;
+		GetComponent<TextMesh>().GetComponent<Renderer>().material.color = Color.red;
 	
 		if(SoundArchive.Instance.menuButton)
 			AudioSource.PlayClipAtPoint(SoundArchive.Instance.menuButton, Camera.main.transform.position, 0.5f);

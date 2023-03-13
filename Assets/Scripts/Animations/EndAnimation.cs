@@ -44,7 +44,7 @@ public class EndAnimation : MonoBehaviour {
         lightEndAnimation.WakeUp();
         classificationInstantiate.InstantiateIcons();
 
-        backCollider.collider.enabled = true;
+        backCollider.GetComponent<Collider>().enabled = true;
 		Destroy(this);
 	}
 }

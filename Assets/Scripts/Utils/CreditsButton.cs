@@ -7,7 +7,7 @@ public class CreditsButton : MonoBehaviour {
 
     void OnMouseDown()
     {
-        Destroy(collider);
+        Destroy(GetComponent<Collider>());
 
         AudioSource.PlayClipAtPoint(SoundArchive.Instance.menuButton, Camera.main.transform.position, 0.5f);
 

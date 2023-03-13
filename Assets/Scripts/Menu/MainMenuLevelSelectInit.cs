@@ -17,7 +17,7 @@ public class MainMenuLevelSelectInit : MonoBehaviour {
 
         yield return new WaitForSeconds(0.5f);
 
-        collider.collider.enabled = true;
+        collider.GetComponent<Collider>().enabled = true;
 
         levelSelectGroup.Show();
 

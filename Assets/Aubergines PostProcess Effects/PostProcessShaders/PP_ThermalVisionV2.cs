@@ -22,14 +22,14 @@ public class PP_ThermalVisionV2 : PostProcessBase {
 		if (!noiseTex || !thermalTex)
 			Debug.LogWarning("You must set the necessary textures");
 		base.shader = Shader.Find("Hidden/Aubergine/ThermalVisionV2");
-		camera.depthTextureMode |= DepthTextureMode.DepthNormals;
+		GetComponent<Camera>().depthTextureMode |= DepthTextureMode.DepthNormals;
 	}
 	// Called by camera to apply image effect
 	void OnRenderImage (RenderTexture source, RenderTexture destination) {
 		base.material.SetTexture("_ThermalTex", thermalTex);
 		base.material.SetTexture("_NoiseTex", noiseTex);
 		base.material.SetFloat ("_NoiseAmount", noiseAmount);
-		Matrix4x4 mat = (camera.projectionMatrix * camera.worldToCameraMatrix).inverse;
+		Matrix4x4 mat = (GetComponent<Camera>().projectionMatrix * GetComponent<Camera>().worldToCameraMatrix).inverse;
 		//Matrix4x4 mat = (camera.cameraToWorldMatrix * camera.projectionMatrix).inverse;
 		base.material.SetMatrix("_ViewProjectInverse", mat);
 		Graphics.Blit (source, destination, base.material);

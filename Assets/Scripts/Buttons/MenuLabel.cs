@@ -25,32 +25,32 @@ public class MenuLabel : MonoBehaviour
 
     void Start()
     {
-        mainColor = renderer.material.color;
+        mainColor = GetComponent<Renderer>().material.color;
         finalText = GetComponent<TextMesh>().text;              
         GetComponent<TextMesh>().text = "";
     }
 
     void Update()
     {
-        GetComponent<TextMesh>().renderer.material.color = Color.Lerp(GetComponent<TextMesh>().renderer.material.color, mainColor, Time.deltaTime * colorSpeed);
+        GetComponent<TextMesh>().GetComponent<Renderer>().material.color = Color.Lerp(GetComponent<TextMesh>().GetComponent<Renderer>().material.color, mainColor, Time.deltaTime * colorSpeed);
 	}
 
     public void WakeUp()
     {
         StartCoroutine(FadeIn());
-        if (gameObject.collider) collider.enabled = true;
+        if (gameObject.GetComponent<Collider>()) GetComponent<Collider>().enabled = true;
     }
 
     public void Sleep()
     {
         StartCoroutine(FadeOut());
-        if(gameObject.collider) collider.enabled = false;
+        if(gameObject.GetComponent<Collider>()) GetComponent<Collider>().enabled = false;
     }
 
     void OnMouseDown() 
     {
         if(inOut) StartCoroutine(FadeInOut());
-        GetComponent<TextMesh>().renderer.material.color = Color.red;
+        GetComponent<TextMesh>().GetComponent<Renderer>().material.color = Color.red;
     }
 
     IEnumerator FadeIn()

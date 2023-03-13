@@ -41,7 +41,7 @@ public class EmitterBlockStructAnimation : MonoBehaviour {
         
         AnimatedMesh emitter = obj.GetComponent<AnimatedMesh>();
         emitter.transform.parent = transform;
-        emitter.mesh.renderer.material.color = Color.red;
+        emitter.mesh.GetComponent<Renderer>().material.color = Color.red;
 
 		emitter.inGroup.transform.localScale = center.inGroup.transform.localScale + new Vector3(0.05f, 0.05f, 0.05f);
 		emitter.outGroup.transform.localScale = center.outGroup.transform.localScale;

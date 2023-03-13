@@ -15,7 +15,7 @@ public class PP_FoggyScreen : PostProcessBase {
 	}
 	void OnEnable () {
 		base.shader = Shader.Find("Hidden/Aubergine/FoggyScreen");
-		camera.depthTextureMode |= DepthTextureMode.Depth;
+		GetComponent<Camera>().depthTextureMode |= DepthTextureMode.Depth;
 	}
 	// Called by camera to apply image effect
 	void OnRenderImage (RenderTexture source, RenderTexture destination) {

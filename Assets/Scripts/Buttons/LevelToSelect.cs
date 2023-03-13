@@ -56,7 +56,7 @@ public class LevelToSelect : MonoBehaviour {
         SkinnedMeshRenderer[] meshes = GetComponentsInChildren<SkinnedMeshRenderer>();
         foreach (SkinnedMeshRenderer mesh in meshes)
         {
-            mesh.renderer.material.color = Color.Lerp(mesh.renderer.material.color, targetColor, Time.deltaTime * 5);
+            mesh.GetComponent<Renderer>().material.color = Color.Lerp(mesh.GetComponent<Renderer>().material.color, targetColor, Time.deltaTime * 5);
         }
     }
 

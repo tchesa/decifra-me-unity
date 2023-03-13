@@ -20,13 +20,13 @@ public class PauseButton : MonoBehaviour
         //if (!general.paused)
         if(!General.Instance.paused)
         {
-            border.renderer.material.color = Color.Lerp(border.renderer.material.color, targetColor, Time.deltaTime * 5);
-            icon.renderer.material.color = Color.Lerp(icon.renderer.material.color, targetColor, Time.deltaTime * 5);
+            border.GetComponent<Renderer>().material.color = Color.Lerp(border.GetComponent<Renderer>().material.color, targetColor, Time.deltaTime * 5);
+            icon.GetComponent<Renderer>().material.color = Color.Lerp(icon.GetComponent<Renderer>().material.color, targetColor, Time.deltaTime * 5);
         }
         else
         {
-            border.renderer.material.color = Color.Lerp(border.renderer.material.color, Color.red, Time.deltaTime * 5);
-            icon.renderer.material.color = Color.Lerp(icon.renderer.material.color, Color.red, Time.deltaTime * 5);
+            border.GetComponent<Renderer>().material.color = Color.Lerp(border.GetComponent<Renderer>().material.color, Color.red, Time.deltaTime * 5);
+            icon.GetComponent<Renderer>().material.color = Color.Lerp(icon.GetComponent<Renderer>().material.color, Color.red, Time.deltaTime * 5);
         }
     }
 
@@ -59,7 +59,7 @@ public class PauseButton : MonoBehaviour
                 sound.WakeUp();
                 restart.WakeUp();
                 General.Instance.Pause();
-                panelCollider.collider.enabled = true;
+                panelCollider.GetComponent<Collider>().enabled = true;
             }
             else
             {
@@ -70,7 +70,7 @@ public class PauseButton : MonoBehaviour
                 sound.Sleep();
                 restart.Sleep();
                 General.Instance.Unpause();
-                panelCollider.collider.enabled = false;
+                panelCollider.GetComponent<Collider>().enabled = false;
             }
         }
     }

@@ -32,7 +32,7 @@ public class LightEndAnimation : MonoBehaviour {
                 {
                     light.intensity += Time.deltaTime / time;
 
-                    foreach (TextMesh text in texts) text.renderer.material.color = new Color(light.intensity, light.intensity, light.intensity, 1);
+                    foreach (TextMesh text in texts) text.GetComponent<Renderer>().material.color = new Color(light.intensity, light.intensity, light.intensity, 1);
                 }
                 else
                 {

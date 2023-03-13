@@ -33,9 +33,9 @@ public class ParticleStringAnimation : MonoBehaviour
 
         transform.localScale = Vector3.one * _scale;
 
-        GetComponent<TextMesh>().renderer.material.color = new Color(GetComponent<TextMesh>().renderer.material.color.r,
-																	 GetComponent<TextMesh>().renderer.material.color.g, 
-																	 GetComponent<TextMesh>().renderer.material.color.b, 
+        GetComponent<TextMesh>().GetComponent<Renderer>().material.color = new Color(GetComponent<TextMesh>().GetComponent<Renderer>().material.color.r,
+																	 GetComponent<TextMesh>().GetComponent<Renderer>().material.color.g, 
+																	 GetComponent<TextMesh>().GetComponent<Renderer>().material.color.b, 
 			  														 Random.value * (maxAplha - minAlpha) + minAlpha);
 
         StartCoroutine(FadeIn());

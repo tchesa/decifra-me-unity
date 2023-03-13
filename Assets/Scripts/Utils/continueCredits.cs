@@ -7,7 +7,7 @@ public class continueCredits : MonoBehaviour {
 
     void OnMouseDown()
     {
-        Destroy(collider);
+        Destroy(GetComponent<Collider>());
         init.Exit();
     }
 }

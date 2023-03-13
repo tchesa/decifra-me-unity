@@ -44,11 +44,11 @@ public class RecieverBlockStructAnimation : MonoBehaviour {
 
             AnimatedMesh emitter = obj.GetComponent<AnimatedMesh>();
             emitter.transform.parent = transform;
-            emitter.mesh.renderer.material.color = Color.red;
+            emitter.mesh.GetComponent<Renderer>().material.color = Color.red;
 
             emitter.inGroup.transform.localScale = center.inGroup.transform.localScale;
             emitter.outGroup.transform.localScale = center.outGroup.transform.localScale;
-            emitter.mesh.renderer.material.color = emitterColor;
+            emitter.mesh.GetComponent<Renderer>().material.color = emitterColor;
 
             iTween.ScaleTo(emitter.outGroup, iTween.Hash("scale", outEmitterScale,
                                                             "time", time * 2 - 0.2f,

@@ -16,7 +16,7 @@ public class PP_LightShafts : PostProcessBase {
 		base.material.SetFloat ("_Weight", weight);
 		base.material.SetFloat ("_Decay", decay);
 		base.material.SetFloat ("_Exposure", exposure);
-		lightSPos = camera.WorldToViewportPoint(lightSource.position);
+		lightSPos = GetComponent<Camera>().WorldToViewportPoint(lightSource.position);
 		base.material.SetVector("_LightSPos", lightSPos);
 	}
 	void OnEnable () {
@@ -28,7 +28,7 @@ public class PP_LightShafts : PostProcessBase {
 
 	// Called by camera to apply image effect
 	void OnRenderImage (RenderTexture source, RenderTexture destination) {
-		lightSPos = camera.WorldToViewportPoint(lightSource.position);
+		lightSPos = GetComponent<Camera>().WorldToViewportPoint(lightSource.position);
 		if (lightSPos.x < 0f || lightSPos.x > 1f || lightSPos.y < 0f || lightSPos.y > 1f || lightSPos.z < 0f) {
 			base.material.SetVector("_LightSPos", new Vector3(0.5f, 0.5f, 0f));
 			base.material.SetFloat ("_Density", density - density + 0.1f);
@@ -43,7 +43,7 @@ public class PP_LightShafts : PostProcessBase {
 			base.material.SetFloat ("_Decay", decay);
 			base.material.SetFloat ("_Exposure", exposure);
 		}
-		Debug.Log(camera.WorldToViewportPoint(lightSource.position));
+		Debug.Log(GetComponent<Camera>().WorldToViewportPoint(lightSource.position));
 		Graphics.Blit (source, destination, material);
 	}
 }

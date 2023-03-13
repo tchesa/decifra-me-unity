@@ -7,7 +7,7 @@ public class ParticlePlayer : MonoBehaviour {
     {
         if (Time.time > Constants.EndAnimation)
         {
-            particleSystem.Play();
+            GetComponent<ParticleSystem>().Play();
             Destroy(this);
         }
     }

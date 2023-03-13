@@ -102,14 +102,14 @@ public class General : MonoBehaviour
 
         if (cubesLeft != _cubesLeft)
         {
-            txtCubesLeft.renderer.material.color = Color.white;
+            txtCubesLeft.GetComponent<Renderer>().material.color = Color.white;
         }
 
         if (cubesLeft != 0)
         {
-            txtCubesLeft.renderer.material.color = new Color(Mathf.Clamp(txtCubesLeft.renderer.material.color.r - Time.deltaTime * 0.5f, 0.5f, 1),
-                                                            Mathf.Clamp(txtCubesLeft.renderer.material.color.r - Time.deltaTime * 0.5f, 0.5f, 1),
-                                                            Mathf.Clamp(txtCubesLeft.renderer.material.color.r - Time.deltaTime * 0.5f, 0.5f, 1),
+            txtCubesLeft.GetComponent<Renderer>().material.color = new Color(Mathf.Clamp(txtCubesLeft.GetComponent<Renderer>().material.color.r - Time.deltaTime * 0.5f, 0.5f, 1),
+                                                            Mathf.Clamp(txtCubesLeft.GetComponent<Renderer>().material.color.r - Time.deltaTime * 0.5f, 0.5f, 1),
+                                                            Mathf.Clamp(txtCubesLeft.GetComponent<Renderer>().material.color.r - Time.deltaTime * 0.5f, 0.5f, 1),
                                                             1);
         }
 
